@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from www.itsbalcony.com/invite/shahi-patra-1d92be by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 22 Nov 2026 09:53:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="ZeDygvO1xb5U261CBHZKUCYR3JpwNAL6P2QZ2ROT">
+    <title>Ayush &amp; Shreya</title>
+    <meta name="description" content="2026-12-09">
+    <meta property="og:title" content="Ayush &amp; Shreya">
+    <meta property="og:description" content="2026-12-09">
+    <meta property="og:image" content="../templates/royale/media/01.jpeg">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        html, body { margin: 0; height: 100%; }
+        iframe { display: block; width: 100%; height: 100%; border: 0; }
+    </style>
+</head>
+<body>
+    <iframe src="../templates/royale/index.html#platform=eyJldmVudCI6eyJjb21tb25MaW5rIjp0cnVlLCJzdGF0dXMiOiJsaXZlIn19" allow="autoplay; fullscreen" title="Ayush &amp; Shreya"></iframe>
+
+    <script>
+    (function () {
+        const eventId = 8;
+        const guestId = null;
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
+
+        window.addEventListener('message', function (e) {
+            const msg = e.data;
+            if (!msg || typeof msg !== 'object' || msg.type !== 'balcony:rsvp') return;
+
+            fetch('https://www.itsbalcony.com/api/rsvp', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': csrfToken,
+                    'Accept': 'application/json',
+                },
+                body: JSON.stringify({
+                    eventId: eventId,
+                    // Null on the common link - the guest identifies themselves
+                    // with the name + contact below instead.
+                    guestId: guestId,
+                    // Asked on both links; on the common one it is the identity,
+                    // so a repeat reply from the same number updates the first.
+                    contact: typeof msg.contact === 'string' ? msg.contact : null,
+                    // Only sent from the common link; ignored when guestId is set.
+                    name: typeof msg.name === 'string' ? msg.name : null,
+                    // Per-event answers from the shared RSVP module.
+                    responses: Array.isArray(msg.responses) ? msg.responses : [],
+                    // Free-text wishes to the couple (one per guest).
+                    message: typeof msg.message === 'string' ? msg.message : null,
+                }),
+            });
+        });
+    })();
+    </script>
+</body>
+
+<!-- Mirrored from www.itsbalcony.com/invite/shahi-patra-1d92be by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 22 Nov 2026 09:53:47 GMT -->
+</html>
